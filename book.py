@@ -11,13 +11,19 @@ sp = BeautifulSoup( r.text, 'html.parser')
 
 names = sp.find_all("li",class_ = "item", limit = 5)  # 只取五筆
 
+titles = []
+prices = []
 for name in names:
-    print(name.a.get("title"))  # 取得書名
-    print(name.find_all("b")[1].text)  # 取得價格
-    print()
+    title = name.a.get("title")  # 取得書名
+    price = name.find_all("b")[1].text  # 取得價格
+    # print(title)
+    # print(price)
+    # print()
+    titles.append(title)
+    prices.append(price)
+book = {"書名":titles, "價格":prices}
+df = pd.DataFrame(book)
+df.to_csv(r'C:\Users\ds423\Desktop\web_crawler\book.csv', encoding="utf-8")
+print(df)
 
-
-# for name in names:
-#     title = name.a.get("title"))
-#     price = name.find_all("b")[1].text) 
 
