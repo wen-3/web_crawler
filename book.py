@@ -23,7 +23,6 @@ for name in names:
     prices.append(price)
 book = {"書名":titles, "價格":prices}
 df = pd.DataFrame(book)
-df.to_csv(r'C:\Users\ds423\Desktop\web_crawler\book.csv', encoding="utf-8")
+df.to_csv(r'C:\Users\Desktop\web_crawler\book.csv', encoding="utf-8")
 print(df)
-
 

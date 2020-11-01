@@ -34,7 +34,7 @@ def Parse_Get_MetaData(url, keyword, page):
                     '品名': product['name'],
                     '商品連結':'https://24h.m.pchome.com.tw/prod/' + product['Id'],   # product['Id'] 代表產品 id
                     '價格': product['price'],
-                    '頁數':i
+                    '頁數': i
                 })
         else:
             break
@@ -50,9 +50,10 @@ def main():
 
     save_result = Parse_Get_MetaData(url, keyword, page_crawl)
 
-    # 存入 excel 中
+    # 存入 csv 中
     df = pd.DataFrame(save_result)
-    df.to_excel('pchome24.xlsx', sheet_name='sheet1', columns=['編號','品名','商品連結','價格','頁數'], encoding="utf-8")
+    # df.to_excel('pchome24.xlsx', sheet_name='sheet1', columns=['編號','品名','商品連結','價格','頁數'])  # 存入 excel 中
+    df.to_csv('pchome24.csv', encoding="utf-8", columns=['編號','品名','商品連結','價格','頁數'])
 
 if __name__ == '__main__':
     main()
