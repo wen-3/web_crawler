@@ -50,7 +50,7 @@ def Parse_Get_MetaData(soup):
 
 # 主程式
 def main():
-    keyword = input("請輸入欲查詢之商品關鍵字：")
+    keyword = input("請輸入欲查詢之論文資料：")
     url =  "https://scholar.google.com.tw/scholar?hl=zh-TW&as_sdt=0%2C5&q=" + keyword
     soup = Get_PageContent(url)
 
